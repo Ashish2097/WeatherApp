@@ -7,6 +7,7 @@ This is a weather app
 4. Form submit (for seamless keyboard use)
 
 ## Apis used
-For cities : http://api.geonames.org/
-For countries: https://restcountries.com/
+- For cities : http://api.geonames.org
+- For countries: https://restcountries.com
+- For weather-forecast: http://api.openweathermap.org
 
