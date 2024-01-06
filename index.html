@@ -1,0 +1,33 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Weather App</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Weather App</h1>
+        <form method="post">
+          <div>
+              <label for="city">City:</label>
+              <input type="text" id="city" list="cityList" placeholder="Enter city" autofocus="autofocus">
+
+          </div>
+          <div>
+              <label for="country">Country:</label>
+              <input type="text" id="country" list="country-list" autocomplete="on" placeholder="Enter country" onkeydown="getCountryListDeb(event)">
+              <datalist id="country-list">
+
+              </datalist>
+          </div>
+          <button onclick="getWeather(event)" type="submit">Get Weather</button>
+        </form>
+        <div id="weather-info"></div>
+    </div>
+    <script src="utils.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
