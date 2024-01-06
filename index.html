@@ -8,29 +8,42 @@
     <title>Weather App</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Weather App</h1>
-        <form method="post" onsubmit="getWeather(event)">
-                    <div>
-                            <label for="country">Country:</label>
-                            <input type="text" id="country" list="country-list" autocomplete="on" placeholder="Enter country" oninput="getCountryListDeb(event)" autofocus="autofocus">
-                            <datalist id="country-list"></datalist>
-                    </div>
-                    <div>
-                      <label for="city">City:</label>
-                      <input type="text" id="city" list="city-list" placeholder="Enter city" autocomplete="on" oninput="getCityListDeb(event)" required>
-                      <datalist id="city-list"></datalist>
-                    </div>
-          <button class="submit" type="submit">Get Weather
-            <div class="loader-container" id="loaderContainer">
-              <div class="loader"></div>
-            </div>
-          </button>
-        </form>
-        <div id="weather-info"></div>
+  <div class="container">
+    <h1>Weather App</h1>
+    <form method="post" onsubmit="getWeather(event)">
+      <div>
+              <label for="country">Country:</label>
+              <input type="text" id="country" list="country-list" autocomplete="on" placeholder="Enter country" oninput="getCountryListDeb(event)" autofocus="autofocus">
+              <datalist id="country-list"></datalist>
+      </div>
+      <div>
+        <label for="city">City:</label>
+        <input type="text" id="city" list="city-list" placeholder="Enter city" autocomplete="on" oninput="getCityListDeb(event)" required>
+        <datalist id="city-list"></datalist>
+      </div>
+      <button class="submit" type="submit">Get Weather
+        <div class="loader-container" id="loaderContainer">
+          <div class="loader"></div>
+        </div>
+      </button>
+    </form>
+    <div id="weather-info"></div>
+  </div>
+
+  <div class="right">
+    <div class="scene" id="scene">
+      <div class="sun" id="sun">
+        <img src="assets/images/sun.png" alt="sun">
+      </div>
+      <div class="mountains" onmouseenter="sunrise()" onmouseleave="sunrise(false)">
+        <img src="assets/images/mountains.png"  alt="mountains">
+        <div class="sunrise-time" id="sunriseTime">Sunrise Time: 6:00 AM</div>
+      </div>
     </div>
-    <script src="constants.js"></script>
-    <script src="utils.js"></script>
-    <script src="script.js"></script>
+  </div>
+  <script src="constants.js"></script>
+  <script src="sun-time.js"></script>
+  <script src="utils.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

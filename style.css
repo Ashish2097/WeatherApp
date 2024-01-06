@@ -67,3 +67,47 @@ button {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+.right {
+  position: absolute;
+  right: 0px;
+  width: 200px;
+  height: 100%;
+}
+
+.scene {
+}
+
+.sun {
+  width: 150px;
+  display: flex;
+  height: 100px;
+  justify-content: center;
+
+  position: absolute;
+  top: 50%;
+  /* transform: translate(0, -50%); */
+  font-size: 3em;
+  cursor: pointer;
+  transition: transform 2s;
+}
+
+.mountains {
+  position: absolute;
+  top: 50%;
+
+  img {
+    width: 150px;
+    aspect-ratio: 1.5;
+  }
+}
+
+.sunrise-time {
+  font-size: 16px;
+  color: black;
+  background-color: #fff;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 2s;
+}
+
