@@ -10,18 +10,18 @@ function getWeather(e) {
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?id=524901&q=${city},${country}&appid=${apiKey}`;
 
   fetch(apiUrl)
-      .then(response => response.json())
-      .then(data => {
-          const temperature = data.main.temp;
-          const description = data.weather[0].description;
+    .then(response => response.json())
+    .then(data => {
+      const temperature = kelvinToCelsius(data.main.temp);
+      const description = data.weather[0].description;
 
-          weatherInfo.innerHTML = `<p>Temperature: ${temperature} K</p>
-                                   <p>Description: ${description}</p>`;
-      })
-      .catch(error => {
-          console.error('Error fetching weather data:', error);
-          weatherInfo.innerHTML = '<p>Error fetching weather data</p>';
-      });
+      weatherInfo.innerHTML = `<p>Temperature: ${temperature} &deg;C</p>
+                                  <p>Description: ${description}</p>`;
+    })
+    .catch(error => {
+      console.error('Error fetching weather data:', error);
+      weatherInfo.innerHTML = '<p>Error fetching weather data</p>';
+    });
 }
 
 // debouncing
