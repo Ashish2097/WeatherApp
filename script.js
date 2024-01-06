@@ -47,4 +47,20 @@ function getCountryList(e) {
   
 
 const getCountryListDeb = debounce(getCountryList, 400);
-debugger;
+
+function getCityList(e) {
+  const country = document.getElementById("country").value;
+  const cityList = document.getElementById("city-list");
+  const search = e.target.value;
+
+  fetch(`http://api.geonames.org/searchJSON?name=${search}&fuzzy=0&countryName=${country}&maxRows=5&username=ashishduklan`) // change username to any random name, use amit, rahul etc.
+    .then(res => res.json())
+    .then(data => {
+      const cityNames = [...new Set(data.geonames.map(city => city.name).filter(name => name.length))];
+
+      cityList.innerHTML = cityNames.map(name => `<option value="${name}">`).join("");
+    })
+    .catch(error =>console.error("Error fetching cities", error));
+}
+
+const getCityListDeb = debounce(getCityList, 400);
