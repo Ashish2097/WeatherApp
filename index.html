@@ -10,18 +10,18 @@
 <body>
     <div class="container">
         <h1>Weather App</h1>
-        <form method="post">
+        <form method="post" onsubmit="getWeather(event)">
                     <div>
                             <label for="country">Country:</label>
                             <input type="text" id="country" list="country-list" autocomplete="on" placeholder="Enter country" oninput="getCountryListDeb(event)" autofocus="autofocus">
                             <datalist id="country-list"></datalist>
                     </div>
                     <div>
-                            <label for="city">City:</label>
-                            <input type="text" id="city" list="city-list" placeholder="Enter city" autocomplete="on" oninput="getCityListDeb(event)">
-                            <datalist id="city-list"></datalist>
+                      <label for="city">City:</label>
+                      <input type="text" id="city" list="city-list" placeholder="Enter city" autocomplete="on" oninput="getCityListDeb(event)" required>
+                      <datalist id="city-list"></datalist>
                     </div>
-          <button class="submit" onclick="getWeather(event)" type="submit">Get Weather
+          <button class="submit" type="submit">Get Weather
             <div class="loader-container" id="loaderContainer">
               <div class="loader"></div>
             </div>
