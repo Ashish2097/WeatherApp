@@ -21,10 +21,15 @@
                             <input type="text" id="city" list="city-list" placeholder="Enter city" autocomplete="on" oninput="getCityListDeb(event)">
                             <datalist id="city-list"></datalist>
                     </div>
-          <button onclick="getWeather(event)" type="submit">Get Weather</button>
+          <button class="submit" onclick="getWeather(event)" type="submit">Get Weather
+            <div class="loader-container" id="loaderContainer">
+              <div class="loader"></div>
+            </div>
+          </button>
         </form>
         <div id="weather-info"></div>
     </div>
+    <script src="constants.js"></script>
     <script src="utils.js"></script>
     <script src="script.js"></script>
 </body>

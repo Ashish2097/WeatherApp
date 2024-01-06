@@ -4,23 +4,35 @@ function getWeather(e) {
   const city = document.getElementById('city').value;
   const country = document.getElementById('country').value;
   const weatherInfo = document.getElementById('weather-info');
+  const htmlBody = document.getElementsByTagName("body")[0];
+  const loaderContainer = document.getElementById('loaderContainer');
 
   // Note: After activating this key again, you need to wait for around 2 or 3 hrs before using it.  
   const apiKey = 'e5e04ac75ad242dbc6f69a146aac5edd'; // keyname: github_weather_app_1
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?id=524901&q=${city},${country}&appid=${apiKey}`;
+
+  loaderContainer.style.display = 'flex'; // Show loader
 
   fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
       const temperature = kelvinToCelsius(data.main.temp);
       const description = data.weather[0].description;
+      const main = data.weather[0].main;
 
       weatherInfo.innerHTML = `<p>Temperature: ${temperature} &deg;C</p>
                                   <p>Description: ${description}</p>`;
+      
+      if (Object.values(WeatherMain).includes(main)) {
+        htmlBody.style.background = `url(assets/backgrounds/${main}.jpg) center/cover`;
+      }
     })
     .catch(error => {
       console.error('Error fetching weather data:', error);
       weatherInfo.innerHTML = '<p>Error fetching weather data</p>';
+    })
+    .finally(() => {
+      loaderContainer.style.display = 'none'; // hide loader
     });
 }
 
