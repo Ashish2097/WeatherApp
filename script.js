@@ -7,6 +7,7 @@ function getWeather(e) {
   const htmlBody = document.getElementsByTagName("body")[0];
   const loaderContainer = document.getElementById('loaderContainer');
   const sunriseTime = document.getElementById("sunriseTimeStamp");
+  const sunriseScene = document.getElementById("sunriseScene");
 
   // Note: After activating this key again, you need to wait for around 2 or 3 hrs before using it.  
   const apiKey = 'e5e04ac75ad242dbc6f69a146aac5edd'; // keyname: github_weather_app_1
@@ -26,6 +27,8 @@ function getWeather(e) {
                                   <p>Description: ${description}</p>`;
 
       sunriseTime.innerText = `${sunriseTimeStamp.getUTCHours()}: ${sunriseTimeStamp.getUTCMinutes()}`;
+      sunriseScene.style.opacity = 1;
+
       if (Object.values(WeatherMain).includes(main)) {
         htmlBody.style.background = `url(assets/backgrounds/${main}.jpg) center/cover`;
       }
